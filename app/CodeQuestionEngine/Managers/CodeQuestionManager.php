@@ -12,11 +12,6 @@ class CodeQuestionManager
 
 
     /**
-     * @var DockerInstance
-     */
-    private $dockerInstance;
-
-    /**
      * @var \CodeFileManager
      */
     private $fileManager;
