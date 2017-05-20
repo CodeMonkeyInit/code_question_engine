@@ -24,7 +24,7 @@ Route::group(['prefix' => 'api'], function() {
      */
     Route::group(['prefix' => 'program'], function () {
 
-        Route::get('docker','DemoController@docker');
+        Route::post('runProgram','CodeQuestionController@runProgram');
 
     });
 });

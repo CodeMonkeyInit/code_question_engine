@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use CalculateMarkDataContract;
 
 class CheckResultJob implements ShouldQueue
 {
@@ -55,15 +56,14 @@ class CheckResultJob implements ShouldQueue
         $mark = $this->fileManager->calculateMark($this->codeTasks);
         echo "оценка $mark\n";
 
-        // $dirPath = $this->codeTasks[0]->dirPath;
 
-        // $this->fileManager->removeDir($dirPath);
+        $contract  = new CalculateMarkDataContract();
+        $contract->setMark($mark);
+        $contract->setGivenAnswerId($this->codeTasks[0]->givenAnserId);
 
-        //echo "директория  c исходниками удалена\n";
+        //todo:: курлом вызывать внешнее апи
 
-       // $newMark = TestResultCalculator::setAnswerMark($this->codeTasks[0]->givenAnswerId, $mark);
 
-       // echo "новая оценка за тест: $newMark\n";
         foreach($this->codeTasks as $codeTask){
             echo $codeTask->key." почищена\n";
             $codeTask->delete();

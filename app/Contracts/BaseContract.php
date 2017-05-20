@@ -4,15 +4,6 @@
 class BaseContract
 {
 
-    private $code;
-
-    private $programId;
-
-    private $testResultId;
-
-    private $questionId;
-
-    private $userId;
 
     public function fillFromJson($json){
         $jsonArray = $json;

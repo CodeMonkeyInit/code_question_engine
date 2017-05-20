@@ -22,6 +22,7 @@ class UnitOfWork
     private $_programRepo;
     private $_dockerInfoRepo;
     private $_userRepo;
+    private $_testResultRepo;
 
 
 
@@ -62,6 +63,14 @@ class UnitOfWork
         }
         return $this->_userRepo;
     }
+
+    public function testResults(){
+        if ($this->_testResultRepo == null){
+            $this->_testResultRepo = new TestResultRepository($this->_em);
+        }
+        return $this->_testResultRepo;
+    }
+
     /**
      * Применяет к базе данных изменения, сделанные втечение сессии.
      */

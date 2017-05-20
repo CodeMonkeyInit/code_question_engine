@@ -6,6 +6,7 @@ use GivenAnswer;
 use Repositories\UnitOfWork;
 use App\Jobs\RunProgramJob;
 use Queue;
+use RunProgramDataContract;
 
 class CodeQuestionManager
 {
@@ -61,14 +62,18 @@ class CodeQuestionManager
     /**
      * Запускает код на выполнение с входными параметрами, которые берутся из базы и заполняются преподавателем при
      * добавлении вопроса. Возвращает оценку студента
-     * @param $code
-     * @param object $program
-     * @param $testResult
+
      * @return string оценка
      */
-    public function runQuestionProgram($code,$program, $testResult,$question,$userId)
+    public function runQuestionProgram(RunProgramDataContract $contract)
     {
-        $user = $this->_uow->users()->find($userId);
+
+        $code = $contract->getCode();
+        $program = $this->_uow->programs()->find($contract->getProgramId());
+        $testResult = $this->_uow->testResults()->find($contract->getTestResultId());
+        $question = $this->_uow->questions()->find($contract->getQuestionId());
+        $user = $this->_uow->users()->find($contract->getUserId());
+
         $givenAnswer =  $this->createEmptyAnswerEntity($testResult,$question,$code);
         $this->prepareForRunning($code,$user);
         $cases_count = $this->fileManager->createTestCasesFiles($program->getId());
