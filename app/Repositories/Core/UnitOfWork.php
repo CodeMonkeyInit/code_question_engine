@@ -21,6 +21,7 @@ class UnitOfWork
     private $_givenAnswerRepo;
     private $_programRepo;
     private $_dockerInfoRepo;
+    private $_userRepo;
 
 
 
@@ -55,6 +56,12 @@ class UnitOfWork
         return $this->_dockerInfoRepo;
     }
 
+    public function users(){
+        if ($this->_userRepo == null){
+            $this->_userRepo = new UserRepository($this->_em);
+        }
+        return $this->_userRepo;
+    }
     /**
      * Применяет к базе данных изменения, сделанные втечение сессии.
      */

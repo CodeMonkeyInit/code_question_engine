@@ -66,16 +66,14 @@ class CodeQuestionManager
      * @param $testResult
      * @return string оценка
      */
-    public function runQuestionProgram($code,$program, $testResult,$question)
+    public function runQuestionProgram($code,$program, $testResult,$question,$userId)
     {
+        $user = $this->_uow->users()->find($userId);
         $givenAnswer =  $this->createEmptyAnswerEntity($testResult,$question,$code);
-        $this->prepareForRunning($code);
+        $this->prepareForRunning($code,$user);
         $cases_count = $this->fileManager->createTestCasesFiles($program->getId());
 
-
-
         $this->run($cases_count,$program,$givenAnswer->getId());
-
     }
 
     /**
@@ -183,8 +181,8 @@ class CodeQuestionManager
         return $givenAnswer;
 
     }
-    private function prepareForRunning($code){
-        $dirPath = $this->fileManager->createDir(Auth::user());
+    private function prepareForRunning($code,$user){
+        $dirPath = $this->fileManager->createDir($user);
         $this->fileManager->setDirPath($dirPath);
         $this->fileManager->putCodeInFile($code);
         $this->fileManager->createLogFile();
