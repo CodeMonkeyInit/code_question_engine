@@ -28,9 +28,5 @@ class CodeQuestionController
         $runProgramDataContract = new RunProgramDataContract();
         $runProgramDataContract->fillFromJson($runProgramJson);
 
-
-
-
-
     }
 }
