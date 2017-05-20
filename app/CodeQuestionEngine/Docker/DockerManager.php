@@ -2,7 +2,7 @@
 
 
 namespace CodeQuestionEngine;
-use MtHaml\Exception;
+use Exception;
 use Repositories\UnitOfWork;
 use DockerInfo;
 

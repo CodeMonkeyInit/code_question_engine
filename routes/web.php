@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix' => 'api'], function() {
+
+    /*------------------------------------------------------------------------------
+     *                       Программы
+     * -----------------------------------------------------------------------------
+     */
+    Route::group(['prefix' => 'program'], function () {
+
+        Route::get('docker','DemoController@docker');
+
+    });
+});
