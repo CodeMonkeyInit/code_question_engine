@@ -24,7 +24,9 @@
     "autoload": {
         "classmap": [
             "database",
-	    "app/CodeQuestionEngine"
+	    "app/CodeQuestionEngine",
+ 	    "app/Repositories",
+	    "app/Entities"
         ],
         "psr-4": {
             "App\\": "app/"
