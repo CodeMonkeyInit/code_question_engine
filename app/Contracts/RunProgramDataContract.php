@@ -30,8 +30,8 @@ class RunProgramDataContract extends BaseContract implements JsonSerializable
     public function getProgramId()
     {
         return $this->programId;
-    }
 
+    }
     /**
      * @param int $programId
      */
@@ -73,22 +73,6 @@ class RunProgramDataContract extends BaseContract implements JsonSerializable
     }
 
     /**
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param int $userId
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-    }
-
-    /**
      * @var int id сущности Program из бд
      */
     protected $programId;
@@ -104,14 +88,75 @@ class RunProgramDataContract extends BaseContract implements JsonSerializable
     protected $questionId;
 
     /**
-     * @var int id сущности User из бд
-     */
-    protected $userId;
-
-    /**
      * @var string язык программирования
      */
     protected $language;
+
+
+    /**
+     * @var int Лимит памяти на программу
+     */
+    protected $memoryLimit;
+
+
+    /**
+     * @var string Фамилия_Имя_Отчество пользователя
+     */
+    protected $fio;
+
+    /**
+     * @return string
+     */
+    public function getFio()
+    {
+        return $this->fio;
+    }
+
+    /**
+     * @param string $fio
+     */
+    public function setFio($fio)
+    {
+        $this->fio = $fio;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMemoryLimit()
+    {
+        return $this->memoryLimit;
+    }
+
+    /**
+     * @param int $memoryLimit
+     */
+    public function setMemoryLimit($memoryLimit)
+    {
+        $this->memoryLimit = $memoryLimit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTimeLimit()
+    {
+        return $this->timeLimit;
+    }
+
+    /**
+     * @param int $timeLimit
+     */
+    public function setTimeLimit($timeLimit)
+    {
+        $this->timeLimit = $timeLimit;
+    }
+
+
+    /**
+     * @var int Лимит времени на программу
+     */
+    protected $timeLimit;
 
     /**
      * @return string

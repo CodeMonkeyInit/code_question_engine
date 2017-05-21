@@ -1,12 +1,10 @@
 <?php
 namespace CodeQuestionEngine;
 
-use Auth;
-use GivenAnswer;
-use Repositories\UnitOfWork;
 use App\Jobs\RunProgramJob;
 use Queue;
 use RunProgramDataContract;
+use Exception;
 
 class CodeQuestionManager
 {
@@ -16,12 +14,6 @@ class CodeQuestionManager
      * @var \CodeFileManager
      */
     private $fileManager;
-    /**
-     * @var UnitOfWork
-     */
-    private $_uow;
-
-
 
     /**
      * @var \Language язык программирования
@@ -44,12 +36,6 @@ class CodeQuestionManager
         return $this->language;
     }
 
-
-    public function __construct(UnitOfWork $uow)
-    {
-        $this->_uow = $uow;
-    }
-
     /**
      * @param $lang - Устанавливает язык программирования, за который отвечает данный менеджер
      * Инстанциирует необходимые зависимости для работы с конкретным языком программирования
@@ -62,24 +48,28 @@ class CodeQuestionManager
     /**
      * Запускает код на выполнение с входными параметрами, которые берутся из базы и заполняются преподавателем при
      * добавлении вопроса. Возвращает оценку студента
-
+     * @param RunProgramDataContract $contract
      * @return string оценка
+     * @throws Exception
      */
     public function runQuestionProgram(RunProgramDataContract $contract)
     {
         try {
 
             $code = $contract->getCode();
-            $program = $this->_uow->programs()->find($contract->getProgramId());
-            $testResult = $this->_uow->testResults()->find($contract->getTestResultId());
-            $question = $this->_uow->questions()->find($contract->getQuestionId());
-            $user = $this->_uow->users()->find($contract->getUserId());
 
-            $givenAnswer = $this->createEmptyAnswerEntity($testResult, $question, $code);
-            $this->prepareForRunning($code, $user);
-            $cases_count = $this->fileManager->createTestCasesFiles($program->getId());
+            $testResultId = $contract->getTestResultId();
+            $questionId = $contract->getQuestionId();
+            $programId = $contract->getProgramId();
+            $memoryLimit = $contract->getMemoryLimit();
+            $timeLimit = $contract->getTimeLimit();
+            $userFio = $contract->getFio();
 
-            $this->run($cases_count, $program, $givenAnswer->getId());
+            $givenAnswer = $this->createEmptyAnswerEntity($testResultId, $questionId, $code);
+            $this->prepareForRunning($code, $userFio);
+            $cases_count = $this->fileManager->createTestCasesFiles($contract->getProgramId());
+
+            $this->run($cases_count, $programId, $timeLimit, $memoryLimit, $givenAnswer->getId());
         }
         catch(Exception $e){
 
@@ -127,10 +117,13 @@ class CodeQuestionManager
 
 
     /**
-     * @param object $program
+     * @param $programId
+     * @param $timeLimit
+     * @param $memoryLimit
+     * @param $givenAnswerId
      * @param $cases_count
      */
-    private function run($cases_count, $program,$givenAnswerId){
+    private function run($cases_count, $programId,$timeLimit,$memoryLimit,$givenAnswerId){
         $dirName = $this->fileManager->getDirNameFromFullPath();
         $cache_dir = $this->fileManager->getCacheDirName();
 
@@ -140,17 +133,17 @@ class CodeQuestionManager
             $script_name = $result["scriptName"];
             $executeFileName = $result["executeFileName"];
 
-
-
             $command = "sh /opt/$cache_dir/$dirName/$script_name";
 
-            $codeTask = new CodeTask($program->getId()
+            $codeTask = new CodeTask($programId
                 ,$givenAnswerId
                 ,$this->language
                 ,$this->fileManager->getDirPath()
                 ,$executeFileName
                 ,\CodeTaskStatus::QueuedToExecute
-                ,$program->getTimeLimit(),$program->getMemoryLimit(),1);
+                ,$timeLimit
+                ,$memoryLimit
+                ,1);
             $codeTask->store();
 
             Queue::push(new RunProgramJob($command,$codeTask));
@@ -184,19 +177,16 @@ class CodeQuestionManager
 
     }
 
-    private function createEmptyAnswerEntity($testResult,$question,$code){
+    private function createEmptyAnswerEntity($testResultId,$questionId,$code){
         //пустая сущность ответа на вопрос, потому что это костыль
-        $givenAnswer = new GivenAnswer();
-        $givenAnswer->setAnswer($code);
-        $givenAnswer->setQuestion($question);
-        $givenAnswer->setTestResult($testResult);
-        $this->_uow->givenAnswers()->create($givenAnswer);
-        $this->_uow->commit();
-        return $givenAnswer;
+
+
+        //todo:: вызов внешнего апи
+        return $givenAnswerId;
 
     }
-    private function prepareForRunning($code,$user){
-        $dirPath = $this->fileManager->createDir($user);
+    private function prepareForRunning($code,$userFio){
+        $dirPath = $this->fileManager->createDir($userFio);
         $this->fileManager->setDirPath($dirPath);
         $this->fileManager->putCodeInFile($code);
         $this->fileManager->createLogFile();

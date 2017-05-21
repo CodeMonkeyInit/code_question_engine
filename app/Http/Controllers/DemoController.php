@@ -3,6 +3,8 @@
 
 namespace App\Http\Controllers;
 
+use CodeQuestionEngine\DockerInfo;
+use CodeQuestionEngine\DockerManager;
 use Repositories\UnitOfWork;
 use TestCalculatorProxy;
 
@@ -19,6 +21,9 @@ class DemoController
         $this->_uow = $uow;
     }
     public function docker(){
-        return TestCalculatorProxy::setAnswerMark(1,100);
+
+
+
+        //return TestCalculatorProxy::setAnswerMark(1,100);
     }
 }

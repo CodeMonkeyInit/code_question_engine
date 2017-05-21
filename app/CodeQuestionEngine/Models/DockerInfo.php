@@ -9,6 +9,7 @@
 
 namespace CodeQuestionEngine;
 
+use Illuminate\Support\Facades\Redis;
 
 class DockerInfo
 {
@@ -79,11 +80,16 @@ class DockerInfo
      * CodeTask constructor.
 
      */
-    public function __construct($dockerId,$language)
+    public function __construct($dockerId,$language,$key = "")
     {
         $this->containerId = $dockerId;
         $this->language = $language;
-        $this->key = self::prefix . '-' . $language;
+        if($key == "") {
+            $this->key = self::prefix . '-' . $language;
+        }
+        else{
+            $this->key = $key;
+        }
     }
 
     public function store(){
@@ -101,9 +107,9 @@ class DockerInfo
         $stored = Redis::hgetall($key);
         if (!empty($stored)) {
             return new DockerInfo(
-                  $stored['key']
-                , $stored['containerId']
-                , $stored['language']);
+                  $stored['containerId']
+                , $stored['language']
+                , $stored['key']);
         }
         return false;
     }
@@ -116,9 +122,9 @@ class DockerInfo
         foreach ($keys as $key) {
             $stored = Redis::hgetall($key);
             $task = new DockerInfo(
-                  $stored['key']
-                , $stored['containerId']
-                , $stored['language']);
+                  $stored['containerId']
+                , $stored['language']
+                , $stored['key']);
 
             $tasks[] = $task;
         }
@@ -133,9 +139,9 @@ class DockerInfo
         foreach ($keys as $key) {
             $stored = Redis::hgetall($key);
             $task = new DockerInfo(
-                  $stored['key']
-                , $stored['containerId']
-                , $stored['language']);
+                  $stored['containerId']
+                , $stored['language']
+                , $stored['key']);
 
             $tasks[] = $task;
         }

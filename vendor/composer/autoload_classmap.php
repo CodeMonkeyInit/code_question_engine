@@ -40,6 +40,7 @@ return array(
     'CodeQuestionEngine\\CodeFileManagerFactory' => $baseDir . '/app/CodeQuestionEngine/LanguageImplementations/CodeFileManagerFactory.php',
     'CodeQuestionEngine\\CodeQuestionManager' => $baseDir . '/app/CodeQuestionEngine/Managers/CodeQuestionManager.php',
     'CodeQuestionEngine\\CodeTask' => $baseDir . '/app/CodeQuestionEngine/Models/CodeTask.php',
+    'CodeQuestionEngine\\DockerInfo' => $baseDir . '/app/CodeQuestionEngine/Models/DockerInfo.php',
     'CodeQuestionEngine\\DockerInstance' => $baseDir . '/app/CodeQuestionEngine/Docker/DockerInstance.php',
     'CodeQuestionEngine\\DockerManager' => $baseDir . '/app/CodeQuestionEngine/Docker/DockerManager.php',
     'CodeQuestionEngine\\EngineGlobalSettings' => $baseDir . '/app/CodeQuestionEngine/Configs/EngineGlobalSettings.php',

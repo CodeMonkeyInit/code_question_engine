@@ -230,18 +230,18 @@ class CodeFileManager
 
     /**
      * Создает директорию cо следующим именем: ФИО юзера и текущий unix_time
-     * @param \User $user
+     * @var $userFio
      * @return string - путь к созданной папке
      * @throws \Exception
      *
      */
-    public function createDir(User $user)
+    public function createDir($userFio)
     {
         try {
-            $dirName = $user->getFirstname() . "_" .
-                $user->getLastname() . "_" .
-                $user->getPatronymic() . "_" .
-                time();
+
+
+            $dirName = $userFio . "_" .
+                       time();
             $cacheDir = EngineGlobalSettings::CACHE_DIR;
 
             $dirPath = "$this->app_path/$cacheDir/$dirName";
@@ -254,11 +254,9 @@ class CodeFileManager
         return $dirPath;
     }
 
-    public function createNonUniqueDir(User $user){
+    public function createNonUniqueDir($userFio){
         try {
-            $dirName = $user->getFirstname() . "_" .
-                $user->getLastname() . "_" .
-                $user->getPatronymic();
+            $dirName = $userFio . "_";
             $cacheDir = EngineGlobalSettings::CACHE_DIR;
 
             $dirPath = "$this->app_path/$cacheDir/$dirName";
