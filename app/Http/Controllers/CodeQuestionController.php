@@ -21,12 +21,16 @@ class CodeQuestionController
 
     /**
      * @param Request $request запускает программу на выполнение
+     * @return
      */
     public function runProgram(Request $request){
 
-        $runProgramJson = $request->json('runProgramContract');
+        $runProgramJson = $request->all();
         $runProgramDataContract = new RunProgramDataContract();
         $runProgramDataContract->fillFromJson($runProgramJson);
+
+        $this->_codeQuestionManager->setProgramLanguage($runProgramDataContract->getLanguage());
+        $this->_codeQuestionManager->runQuestionProgram($runProgramDataContract);
 
     }
 }

@@ -67,18 +67,27 @@ class CodeQuestionManager
      */
     public function runQuestionProgram(RunProgramDataContract $contract)
     {
+        try {
 
-        $code = $contract->getCode();
-        $program = $this->_uow->programs()->find($contract->getProgramId());
-        $testResult = $this->_uow->testResults()->find($contract->getTestResultId());
-        $question = $this->_uow->questions()->find($contract->getQuestionId());
-        $user = $this->_uow->users()->find($contract->getUserId());
+            $code = $contract->getCode();
+            $program = $this->_uow->programs()->find($contract->getProgramId());
+            $testResult = $this->_uow->testResults()->find($contract->getTestResultId());
+            $question = $this->_uow->questions()->find($contract->getQuestionId());
+            $user = $this->_uow->users()->find($contract->getUserId());
 
-        $givenAnswer =  $this->createEmptyAnswerEntity($testResult,$question,$code);
-        $this->prepareForRunning($code,$user);
-        $cases_count = $this->fileManager->createTestCasesFiles($program->getId());
+            $givenAnswer = $this->createEmptyAnswerEntity($testResult, $question, $code);
+            $this->prepareForRunning($code, $user);
+            $cases_count = $this->fileManager->createTestCasesFiles($program->getId());
 
-        $this->run($cases_count,$program,$givenAnswer->getId());
+            $this->run($cases_count, $program, $givenAnswer->getId());
+        }
+        catch(Exception $e){
+
+            $errorMsg = $e->getMessage();
+            throw new Exception("Запуск программы произошел с ошибкой. $errorMsg");
+        }
+
+        return "Программа успешно запущена";
     }
 
     /**

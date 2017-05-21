@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use TaskStatesManager;
 use Exception;
+use CodeTaskStatus;
 class OperateTaskStates extends Command
 {
     /**
@@ -51,7 +52,7 @@ class OperateTaskStates extends Command
             $i++;
             foreach($tasks as $task){
 
-                echo "Ключ: ".$task->key."Состояние: ".$task->state."\n";
+                echo "Ключ: ".$task->key." Состояние: ".CodeTaskStatus::getAlias($task->state)."\n";
             }
             sleep(1);
         }

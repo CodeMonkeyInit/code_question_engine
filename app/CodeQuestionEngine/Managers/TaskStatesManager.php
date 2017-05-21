@@ -4,7 +4,6 @@ use App\Jobs\CheckResultJob;
 use CodeQuestionEngine\DockerManager;
 use CodeQuestionEngine\EngineGlobalSettings;
 use CodeQuestionEngine\CodeTask;
-
 class TaskStatesManager
 {
     /**

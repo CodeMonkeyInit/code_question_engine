@@ -42,4 +42,16 @@ class CodeTaskStatus
      * Выполнена и проверена
      */
     const Done = 6;
+
+    public static function getAlias($status){
+        switch($status){
+            case self::QueuedToExecute : return "В очереди на выполнение";
+            case self::Running : return "Выполняется";
+            case self::Timeout : return "Остановлена по таймауту";
+            case self::MemoryOverflow : return "Остановлена по лимиту памяти";
+            case self::QueuedToCheck : return "В очереди на проверку";
+            case self::Checking : return "Проверяется";
+            case self::Done : return "Выполнена и проверена";
+        }
+    }
 }

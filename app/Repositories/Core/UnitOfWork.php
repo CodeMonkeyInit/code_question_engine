@@ -23,6 +23,8 @@ class UnitOfWork
     private $_dockerInfoRepo;
     private $_userRepo;
     private $_testResultRepo;
+    private $_paramsSetRepo;
+
 
 
 
@@ -69,6 +71,13 @@ class UnitOfWork
             $this->_testResultRepo = new TestResultRepository($this->_em);
         }
         return $this->_testResultRepo;
+    }
+
+    public function paramsSets(){
+        if ($this->_paramsSetRepo == null){
+            $this->_paramsSetRepo = new ParamsSetRepository($this->_em);
+        }
+        return $this->_paramsSetRepo;
     }
 
     /**

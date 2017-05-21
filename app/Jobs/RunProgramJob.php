@@ -36,12 +36,11 @@ class RunProgramJob implements ShouldQueue
 
     public function handle(DockerManager $dockerManager)
     {
-
         $dockerManager->setLanguage($this->codeTask->language);
         $dockerInstance = $dockerManager->getOrCreateInstance();
-        $dockerInstance->run($this->command);
         $this->codeTask->state = \CodeTaskStatus::Running;
         $this->codeTask->store();
+        $dockerInstance->run($this->command);
 
         return;
     }
