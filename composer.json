@@ -27,8 +27,6 @@
         "classmap": [
             "database",
 	    "app/CodeQuestionEngine",
- 	    "app/Repositories",
-	    "app/Entities",
 	    "app/Contracts",
 	    "app/Http/Middleware"
         ],

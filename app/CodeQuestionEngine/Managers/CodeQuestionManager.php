@@ -66,11 +66,11 @@ class CodeQuestionManager
             $timeLimit = $contract->getTimeLimit();
             $userFio = $contract->getFio();
 
-            $givenAnswer = $this->createEmptyAnswerEntity($testResultId, $questionId, $code);
+            $givenAnswerId = $this->createEmptyAnswerEntity($testResultId, $questionId, $code);
             $this->prepareForRunning($code, $userFio);
             $cases_count = $this->fileManager->createTestCasesFiles($contract->getProgramId());
 
-            $this->run($cases_count, $programId, $timeLimit, $memoryLimit, $givenAnswer->getId());
+            $this->run($cases_count, $programId, $timeLimit, $memoryLimit, $givenAnswerId);
         }
         catch(Exception $e){
 

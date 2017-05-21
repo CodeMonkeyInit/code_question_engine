@@ -14,16 +14,18 @@ class DemoController
 {
 
 
-    private $_uow;
 
-    public function __construct(UnitOfWork $uow){
+    public function __construct(){
 
-        $this->_uow = $uow;
     }
     public function docker(){
 
 
 
+
+        $result = TestCalculatorProxy::createEmptyAnswerEntity(1,1,"1488");
+
+        return $result;
         //return TestCalculatorProxy::setAnswerMark(1,100);
     }
 }

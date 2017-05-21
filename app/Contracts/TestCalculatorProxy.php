@@ -25,7 +25,6 @@ class TestCalculatorProxy
         $baseUrl = ConnectionConfigSettings::$BASE_URL;
         $action = ConnectionConfigSettings::$CREATE_GIVEN_ANSWER;
 
-
         $contract  = new GivenAnswerData();
         $contract->setTestResultId($testResultId);
         $contract->setQuestionId($questionId);
