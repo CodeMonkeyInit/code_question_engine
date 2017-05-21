@@ -2,111 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8908a275-d79d-4ce1-9941-f8d294141580" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Answer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Core/BaseEntity.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Core/PaginationResult.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Discipline.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/DisciplineLecturer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/DisciplinePlan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/DockerInfo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/DomainTypes/UserRole.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/ExtraAttempt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/GivenAnswer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Group.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Institute.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Mark.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/MarkType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/ParamsSet.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Profile.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/ProfileDiscipline.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Program.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Question.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Role.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/RoleUser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Section.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/StudentGroup.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Studyplan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/TestMarkType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/TestResult.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/TestSetting.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/TestTheme.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/Theme.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Entities/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Core/BaseRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Core/IRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Core/UnitOfWork.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/DockerInfoRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/GivenAnswerRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/IUserRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/ParamsSetRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/ProgramRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/QuestionRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/TestResultRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Answer.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Discipline.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/DisciplineLecturer.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/DisciplinePlan.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/DockerInfo.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/ExtraAttempt.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/GivenAnswer.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Group.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Institute.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Mark.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/MarkType.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/ParamsSet.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Profile.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/ProfileDiscipline.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Program.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Question.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Role.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/RoleUser.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Section.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/StudentGroup.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Studyplan.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Test.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/TestMarkType.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/TestResult.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/TestSetting.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/TestTheme.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/Theme.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/mappings/User.dcm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Answer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Discipline.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__DisciplineLecturer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__DisciplinePlan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__ExtraAttempt.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__GivenAnswer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Group.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__InputParam.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Institute.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Mark.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__MarkType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__ParamsSet.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Profile.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__ProfileDiscipline.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Program.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Question.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Role.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__RoleUser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Section.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__StudentGroup.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Studyplan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__TestMarkType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__TestResult.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__TestSetting.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__TestTheme.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__Theme.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/storage/proxies/__CG__User.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Contracts/GivenAnswerData.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeFileManager.php" afterPath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeFileManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php" afterPath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CodeQuestionEngine/Models/DockerInfo.php" afterPath="$PROJECT_DIR$/app/CodeQuestionEngine/Models/DockerInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Contracts/RunProgramDataContract.php" afterPath="$PROJECT_DIR$/app/Contracts/RunProgramDataContract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DemoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DemoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php" afterPath="$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php" afterPath="$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -121,33 +21,62 @@
       <file leaf-file-name="RunProgramDataContract.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Contracts/RunProgramDataContract.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+            <state relative-caret-position="345">
+              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="87" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodeQuestionManager.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConnectionConfigSettings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="75" lean-forward="false" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeQuestionManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="525">
+              <caret line="185" column="30" lean-forward="false" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="30" />
               <folding>
                 <element signature="e#37#64#0#PHP" expanded="true" />
+                <element signature="e#2520#3325#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DemoController.php">
+      <file leaf-file-name="CodeQuestionController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <element signature="e#41#75#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="500">
+              <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="29" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GivenAnswerData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Contracts/GivenAnswerData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -155,50 +84,8 @@
       <file leaf-file-name="EngineGlobalSettings.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Configs/EngineGlobalSettings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-720">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeTask.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Models/CodeTask.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DockerInfo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Models/DockerInfo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1745">
-              <caret line="141" column="18" lean-forward="false" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
-              <folding>
-                <element signature="e#7#142#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DockerInstance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Docker/DockerInstance.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-515">
-              <caret line="53" column="20" lean-forward="false" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DockerManager.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Docker/DockerManager.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="36" column="46" lean-forward="false" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -212,6 +99,16 @@
               <folding>
                 <element signature="e#38#58#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestCalculatorProxy.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -272,16 +169,17 @@
         <option value="$PROJECT_DIR$/app/Jobs/CheckResultJob.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/TaskStatesManager.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/CheckIP.php" />
-        <option value="$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Docker/DockerManager.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Models/CodeTask.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Models/DockerInfo.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DemoController.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeFileManager.php" />
         <option value="$PROJECT_DIR$/app/Contracts/RunProgramDataContract.php" />
+        <option value="$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php" />
+        <option value="$PROJECT_DIR$/app/Contracts/GivenAnswerData.php" />
+        <option value="$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php" />
       </list>
     </option>
   </component>
@@ -337,7 +235,75 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-question" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -603,12 +569,12 @@
       <updated>1495305881790</updated>
       <workItem from="1495305883096" duration="10512000" />
       <workItem from="1495381309137" duration="1649000" />
-      <workItem from="1495383237944" duration="8952000" />
+      <workItem from="1495383237944" duration="10976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21113000" />
+    <option name="totallyTimeSpent" value="23137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -647,13 +613,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -846,16 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
-          <folding>
-            <element signature="e#40#83#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/queue.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
@@ -892,30 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="59" lean-forward="false" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckIP.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -945,7 +870,7 @@
         <state relative-caret-position="-800">
           <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding>
-            <element signature="e#7#35#0#PHP" expanded="true" />
+            <element signature="e#7#35#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -973,16 +898,8 @@
         <state relative-caret-position="480">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#41#75#0#PHP" expanded="true" />
+            <element signature="e#41#75#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Configs/EngineGlobalSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,21 +947,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Configs/EngineGlobalSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Contracts/RunProgramDataContract.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+        <state relative-caret-position="345">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="87" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Contracts/GivenAnswerData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Contracts/TestCalculatorProxy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Contracts/ConnectionConfigSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="75" lean-forward="false" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="525">
+          <caret line="185" column="30" lean-forward="false" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="30" />
           <folding>
             <element signature="e#37#64#0#PHP" expanded="true" />
+            <element signature="e#2520#3325#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="29" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>

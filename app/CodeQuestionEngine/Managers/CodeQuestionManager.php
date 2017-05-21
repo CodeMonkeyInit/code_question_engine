@@ -5,6 +5,7 @@ use App\Jobs\RunProgramJob;
 use Queue;
 use RunProgramDataContract;
 use Exception;
+use TestCalculatorProxy;
 
 class CodeQuestionManager
 {
@@ -151,7 +152,7 @@ class CodeQuestionManager
         }
 
         for($i = 0; $i < $cases_count; $i++) {
-            $result = $this->fileManager->createShellScriptForTestCase($program->getId(), $i);
+            $result = $this->fileManager->createShellScriptForTestCase($programId, $i);
 
 
             $script_name = $result["scriptName"];
@@ -160,13 +161,16 @@ class CodeQuestionManager
 
             $command = "sh /opt/$cache_dir/$dirName/$script_name";
 
-            $codeTask = new CodeTask($program->getId()
+            $codeTask = new CodeTask($programId
                 ,$givenAnswerId
                 ,$this->language
                 ,$this->fileManager->getDirPath()
                 ,$executeFileName
                 ,\CodeTaskStatus::QueuedToExecute
-                ,$program->getTimeLimit(),$program->getMemoryLimit(),$cases_count,$i);
+                ,$timeLimit
+                ,$memoryLimit
+                ,$cases_count
+                ,$i);
 
             $codeTask->store();
 
@@ -178,12 +182,8 @@ class CodeQuestionManager
     }
 
     private function createEmptyAnswerEntity($testResultId,$questionId,$code){
-        //пустая сущность ответа на вопрос, потому что это костыль
-
-
-        //todo:: вызов внешнего апи
+        $givenAnswerId = TestCalculatorProxy::createEmptyAnswerEntity($testResultId,$questionId,$code);
         return $givenAnswerId;
-
     }
     private function prepareForRunning($code,$userFio){
         $dirPath = $this->fileManager->createDir($userFio);

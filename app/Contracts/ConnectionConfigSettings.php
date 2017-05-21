@@ -11,6 +11,8 @@ class ConnectionConfigSettings
 
     public static $CALCULATE_MARK_URL = "/api/external/setMark";
 
+    public static $CREATE_GIVEN_ANSWER = "/api/external/createGivenAnswer";
+
 
     /**
      * @var array Белый список IP  для пользования внешними модулями
