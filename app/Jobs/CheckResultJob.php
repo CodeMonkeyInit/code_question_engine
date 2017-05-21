@@ -51,6 +51,8 @@ class CheckResultJob implements ShouldQueue
     {
         $this->fileManager =  CodeFileManagerFactory::getCodeFileManager($this->language);
         $this->fileManager->setDirPath($this->codeTasks[0]->dirPath);
+
+
         $count  = count($this->codeTasks);
         echo "cases_count = $count\n";
         $mark = $this->fileManager->calculateMark($this->codeTasks);

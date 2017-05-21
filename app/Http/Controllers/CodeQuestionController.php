@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use CodeQuestionEngine\CodeQuestionManager;
 use Illuminate\Http\Request;
 use RunProgramDataContract;
+use ParamsSet;
 class CodeQuestionController
 {
 
@@ -21,11 +22,12 @@ class CodeQuestionController
 
     /**
      * @param Request $request запускает программу на выполнение
-     * @return
      */
     public function runProgram(Request $request){
 
         $runProgramJson = $request->all();
+
+
         $runProgramDataContract = new RunProgramDataContract();
         $runProgramDataContract->fillFromJson($runProgramJson);
 

@@ -28,7 +28,8 @@
             "database",
 	    "app/CodeQuestionEngine",
 	    "app/Contracts",
-	    "app/Http/Middleware"
+	    "app/Http/Middleware",
+	    "app/Models"
         ],
         "psr-4": {
             "App\\": "app/"

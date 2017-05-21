@@ -1,5 +1,4 @@
 <?php
-use Repositories\UnitOfWork;
 use CodeQuestionEngine\EngineGlobalSettings;
 
 
@@ -212,10 +211,9 @@ class CodeFileManager
         $this->dirPath = $dirPath;
     }
 
-    public function __construct(UnitOfWork $uow)
+    public function __construct()
     {
         $this->app_path = app_path();
-        $this->_uow = $uow;
         $this->baseShellScriptDir = EngineGlobalSettings::BASE_SHELL_SCRIPT_DIR_NAME;
         $this->inputFileNamePatternForTestCase = EngineGlobalSettings::INPUT_FILE_NAME_FOR_TEST_CASE;
         $this->outputFileNamePatternForTestCase = EngineGlobalSettings::OUTPUT_FILE_NAME_FOR_TEST_CASE;
@@ -354,23 +352,10 @@ class CodeFileManager
 
     /**
      * Метод, который создает в уникальной папке пользователя файлы для всех тестовых случаев определенной задачи
-     * @param $programId
+     * @param array
      * @return int $count - число полученных тестовых случаев
      */
-    public function createTestCasesFiles($programId)
-    {
-        $paramsSets = $this->_uow->paramsSets()->getByProgram($programId);
-        $count = count($paramsSets);
-        for ($i = 0; $i < $count; $i++) {
-            $this->putTestCaseInFiles($paramsSets[$i]->getInput(),
-                $paramsSets[$i]->getExpectedOutput(),
-                $i);
-        }
-
-        return $count;
-    }
-
-    public function createTestCasesFilesByParamsSetsArray(array $paramsSets)
+    public function createTestCasesFiles(array $paramsSets)
     {
         $count = count($paramsSets);
         for ($i = 0; $i < $count; $i++) {
@@ -381,6 +366,8 @@ class CodeFileManager
 
         return $count;
     }
+
+
 
     /**
      * Сравнивает эталонный результат тестового случая с результатом студента.

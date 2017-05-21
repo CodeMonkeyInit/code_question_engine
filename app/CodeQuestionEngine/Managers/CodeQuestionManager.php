@@ -63,12 +63,13 @@ class CodeQuestionManager
             $questionId = $contract->getQuestionId();
             $programId = $contract->getProgramId();
             $memoryLimit = $contract->getMemoryLimit();
+            $paramSets = $contract->getParamSets();
             $timeLimit = $contract->getTimeLimit();
             $userFio = $contract->getFio();
 
             $givenAnswerId = $this->createEmptyAnswerEntity($testResultId, $questionId, $code);
             $this->prepareForRunning($code, $userFio);
-            $cases_count = $this->fileManager->createTestCasesFiles($contract->getProgramId());
+            $cases_count = $this->fileManager->createTestCasesFiles($paramSets);
 
             $this->run($cases_count, $programId, $timeLimit, $memoryLimit, $givenAnswerId);
         }
@@ -81,40 +82,6 @@ class CodeQuestionManager
         return "Программа успешно запущена";
     }
 
-    /**
-     * Запускает код на выполнение с входными параметрами, которые передаются в виде массива. Возвращает результат работы программы
-     * @param $code
-     * @param array $paramSets
-     * @return mixed
-     * @throws \Exception
-     */
-    public function runQuestionProgramWithParamSets($code,array $paramSets){
-
-
-            $this->prepareForRunning($code);
-
-            $cases_count = $this->fileManager->createTestCasesFilesByParamsSetsArray($paramSets);
-
-
-            //метод для админа, поэтому programId 0. Это значение несущественно
-            $this->run($cases_count,0);
-
-            $result = 'finished';
-
-            /*$errors = $this->fileManager->getErrors();
-            if($errors != ''){
-                throw new \Exception($errors);
-            }
-
-
-           $result =  $this->fileManager->calculateMark($cases_count);
-            $result.="\n";
-            $result.= $this->fileManager->getResultsForCompare($cases_count);
-
-            $this->fileManager->putLogInfo($result);
-           */
-            return $result;
-    }
 
 
     /**
