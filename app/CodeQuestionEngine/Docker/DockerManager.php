@@ -3,14 +3,9 @@
 
 namespace CodeQuestionEngine;
 use Exception;
-use Repositories\UnitOfWork;
-use DockerInfo;
 
 class DockerManager
 {
-
-    private $_uow;
-
     /**
      * @var DockerInfo
      */
@@ -23,10 +18,9 @@ class DockerManager
      */
     private $lang;
 
-    public function __construct(UnitOfWork $_uow)
+    public function __construct()
     {
         $this->appPath = app_path();
-        $this->_uow = $_uow;
     }
 
     public function setLanguage($lang){
@@ -40,7 +34,7 @@ class DockerManager
      */
     public function getOrCreateInstance(){
 
-        $array_result = $this->_uow->dockerInfos()->findByLang($this->lang);
+        $array_result = DockerInfo::findByLang($this->lang);
 
         if(count($array_result) == 0){
 
@@ -91,8 +85,8 @@ class DockerManager
             $drop_command = "docker stop $container_id";
 
             exec($drop_command);
-            $this->_uow->dockerInfos()->delete($this->dockerInfo);
-            $this->_uow->commit();
+
+            DockerInfo::deleteByKey($this->dockerInfo->getKey());
 
             $container_id = $this->runDocker();
 
@@ -123,25 +117,20 @@ class DockerManager
      */
     public function dropAllInstances(){
 
-        $instances = $this->_uow->dockerInfos()->all();
+        $instances = DockerInfo::getAll();
         foreach($instances as $instance){
 
            $container_id =  $instance->getContainerId();
            $command = "docker stop $container_id";
            exec($command);
-           $this->_uow->dockerInfos()->delete($instance);
-
+           DockerInfo::deleteByKey($instance->getKey());
         }
-        $this->_uow->commit();
 
     }
 
     private function pushDockerInfo($container_id){
-        $docker_info = new DockerInfo();
-        $docker_info->setLang($this->lang);
-        $docker_info->setContainerId($container_id);
-        $this->_uow->dockerInfos()->create($docker_info);
-        $this->_uow->commit();
+        $docker_info = new DockerInfo($container_id,$this->lang);
+        $docker_info->store();
         return $docker_info;
 
     }
