@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8908a275-d79d-4ce1-9941-f8d294141580" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeFileManager.php" afterPath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeFileManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php" afterPath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/TaskStatesManager.php" afterPath="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/TaskStatesManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ExecutionScripts/run.sh" afterPath="$PROJECT_DIR$/app/ExecutionScripts/run.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,14 +15,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CodeQuestionManager.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CodeQuestionManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
+            <state relative-caret-position="1148">
               <caret line="160" column="36" lean-forward="false" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
               <folding>
                 <element signature="e#37#64#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeQuestionController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,16 +119,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodeTask.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Models/CodeTask.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="168" column="24" lean-forward="false" selection-start-line="168" selection-start-column="24" selection-end-line="168" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -176,13 +174,13 @@
         <option value="$PROJECT_DIR$/app/Jobs/CheckResultJob.php" />
         <option value="$PROJECT_DIR$/app/tests/Unit/CodeEngineTests/CodeFileManagerTest.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Models/CodeTask.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/OperateTaskStates.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/TaskStatesManager.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeFileManager.php" />
         <option value="$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php" />
       </list>
     </option>
   </component>
@@ -630,12 +628,12 @@
       <workItem from="1495305883096" duration="10512000" />
       <workItem from="1495381309137" duration="1649000" />
       <workItem from="1495383237944" duration="16841000" />
-      <workItem from="1495456084137" duration="17252000" />
+      <workItem from="1495456084137" duration="17934000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46254000" />
+    <option name="totallyTimeSpent" value="46936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -877,7 +875,7 @@
         <state relative-caret-position="420">
           <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
-            <element signature="e#38#58#0#PHP" expanded="true" />
+            <element signature="e#38#58#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -886,14 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="97" column="41" lean-forward="false" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -982,11 +972,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/CodeQuestionEngine/Managers/CodeQuestionManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
+        <state relative-caret-position="1148">
           <caret line="160" column="36" lean-forward="false" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
           <folding>
             <element signature="e#37#64#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CodeQuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
