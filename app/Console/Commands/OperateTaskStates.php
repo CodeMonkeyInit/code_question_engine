@@ -52,7 +52,11 @@ class OperateTaskStates extends Command
             $i++;
             foreach($tasks as $task){
 
-                echo "Ключ: ".$task->key." Состояние: ".CodeTaskStatus::getAlias($task->state)."\n";
+                echo "Ключ: ".$task->key.
+                    " Состояние: ".
+                    CodeTaskStatus::getAlias($task->state).
+                    "\nИмя процесса :".$task->processName.
+                    "\n";
             }
             sleep(1);
         }

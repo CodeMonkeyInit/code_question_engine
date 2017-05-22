@@ -4,6 +4,8 @@ use App\Jobs\CheckResultJob;
 use CodeQuestionEngine\DockerManager;
 use CodeQuestionEngine\EngineGlobalSettings;
 use CodeQuestionEngine\CodeTask;
+use CodeQuestionEngine\CodeFileManagerFactory;
+
 class TaskStatesManager
 {
     /**
@@ -16,6 +18,8 @@ class TaskStatesManager
     public function __construct(DockerManager $dockerManager)
     {
         $this->dockerManager = $dockerManager;
+        $this->fileManager =  CodeFileManagerFactory::getCodeFileManager($this->language);
+        $this->fileManager->setDirPath($this->codeTasks[0]->dirPath);
     }
 
     public function operateTaskStates()
@@ -52,8 +56,14 @@ class TaskStatesManager
         if ($ready_count == $currentTask->casesCount) {
 
             foreach ($cases_tasks as $case_task) {
-                $case_task->state = CodeTaskStatus::Checking;
-                $case_task->store();
+                //админские задачи не проверяются асинхронно, поэтому удаляем их.
+                if($case_task->isAdminTask){
+                    $case_task->delete();
+                }
+                else{
+                    $case_task->state = CodeTaskStatus::Checking;
+                    $case_task->store();
+                }
             }
 
             \Queue::push(new CheckResultJob($currentTask->language, $cases_tasks));

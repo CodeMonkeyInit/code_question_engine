@@ -114,20 +114,40 @@ class CodeQuestionManager
         $this->dockerManager->setLanguage($contract->getLanguage());
         $dockerInstance = $this->dockerManager->getOrCreateInstance();
 
+
         $commands_to_run = array();
+        $executeFileNames = array();
+        $program_id = random_int(1,1000);
 
         //Здесь мы не сразу запускаем на выполнение, т.к.
         //если запускать сразу, то возникает неуловимый баг
+
+
         for($i = 0; $i < $cases_count; $i++) {
             //здесь в качестве programId передаем что угодно, т.к. этот метод вызывает админ
             //и по факту программы в бд нет.
             $result = $this->fileManager->createShellScriptForTestCase(1, $i);
             $script_name = $result["scriptName"];
+            $executeFileNames[] = $result["executeFileName"];
             $commands_to_run[] = "sh /opt/$cache_dir/$dirName/$script_name";
         }
 
-        foreach($commands_to_run as $command){
-        $dockerInstance->run($command);
+        for($i = 0; $i< count($commands_to_run); $i++){
+            $codeTask = new CodeTask($program_id
+                ,1
+                ,$this->language
+                ,$this->fileManager->getDirPath()
+                ,$executeFileNames[$i]
+                ,\CodeTaskStatus::Running
+                ,$contract->getTimeLimit()
+                ,$contract->getMemoryLimit()
+                ,$cases_count
+                ,$i
+                ,true);
+            $codeTask->store();
+
+            $dockerInstance->run($commands_to_run[$i]);
+
         }
 
         $errors = $this->fileManager->getErrors();
@@ -157,29 +177,6 @@ class CodeQuestionManager
     private function run($cases_count, $programId,$timeLimit,$memoryLimit,$givenAnswerId){
         $dirName = $this->fileManager->getDirNameFromFullPath();
         $cache_dir = $this->fileManager->getCacheDirName();
-
-        if($cases_count == 0){
-            $this->fileManager->createInputFile();
-            $result = $this->fileManager->createShellScript();
-            $script_name = $result["scriptName"];
-            $executeFileName = $result["executeFileName"];
-
-            $command = "sh /opt/$cache_dir/$dirName/$script_name";
-
-            $codeTask = new CodeTask($programId
-                ,$givenAnswerId
-                ,$this->language
-                ,$this->fileManager->getDirPath()
-                ,$executeFileName
-                ,\CodeTaskStatus::QueuedToExecute
-                ,$timeLimit
-                ,$memoryLimit
-                ,1);
-            $codeTask->store();
-
-            Queue::push(new RunProgramJob($command,$codeTask));
-            return;
-        }
 
         for($i = 0; $i < $cases_count; $i++) {
             $result = $this->fileManager->createShellScriptForTestCase($programId, $i);

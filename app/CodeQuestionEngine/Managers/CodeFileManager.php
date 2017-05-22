@@ -308,6 +308,11 @@ class CodeFileManager
         fclose($fp);
     }
 
+
+    public function getLogInfo(){
+       return file_get_contents("$this->dirPath/log.txt");
+    }
+
     public function putLogInfo($info)
     {
         $fp = fopen("$this->dirPath/log.txt", "w");

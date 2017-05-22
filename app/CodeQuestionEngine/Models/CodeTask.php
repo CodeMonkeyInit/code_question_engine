@@ -48,6 +48,12 @@ class CodeTask
 
 
     /**
+     * @var bool Если true, то данная задача не проверяется, т.к. ее создал admin
+     */
+    public $isAdminTask;
+
+
+    /**
      * @var string путь к уникальной папке пользователя, где находятся результаты
      * данной задачи
      */
@@ -76,7 +82,18 @@ class CodeTask
      * @param $memoryLimit
      * @param string $testCaseNumber
      */
-    public function __construct($programId,$givenAnswerId, $language, $dirPath, $processName, $state, $timeout, $memoryLimit, $casesCount = 1, $testCaseNumber = "", $key = "")
+    public function __construct($programId
+        ,$givenAnswerId
+        , $language
+        , $dirPath
+        , $processName
+        , $state
+        , $timeout
+        , $memoryLimit
+        , $casesCount = 1
+        , $testCaseNumber = ""
+        , $isAdmin = false
+        , $key = "")
     {
         $this->programId   = $programId;
         $this->givenAnswerId = $givenAnswerId;
@@ -88,6 +105,7 @@ class CodeTask
         $this->language = $language;
         $this->casesCount = $casesCount;
         $this->dirPath = $dirPath;
+        $this->isAdminTask = $isAdmin;
         $splitted = explode("/", $this->dirPath);
         $name = array_pop($splitted);
 
@@ -114,6 +132,7 @@ class CodeTask
             'memoryLimit' => $this->memoryLimit,
             'casesCount'  => $this->casesCount,
             'testCaseNumber' => $this->testCaseNumber,
+            'isAdminTask' => $this->isAdminTask
         ]);
     }
 
@@ -133,7 +152,9 @@ class CodeTask
                 , $stored['memoryLimit']
                 , $stored['casesCount']
                 , $stored['testCaseNumber']
-                , $stored['key']);
+                , $stored['isAdminTask']
+                , $stored['key']
+                );
         }
         return false;
     }
@@ -156,7 +177,9 @@ class CodeTask
                 , $stored['memoryLimit']
                 , $stored['casesCount']
                 , $stored['testCaseNumber']
-                , $stored['key']);
+                , $stored['isAdminTask']
+                , $stored['key']
+                    );
 
             $tasks[] = $task;
         }
