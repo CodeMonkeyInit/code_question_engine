@@ -132,6 +132,7 @@ class CodeQuestionManager
             $commands_to_run[] = "sh /opt/$cache_dir/$dirName/$script_name";
         }
 
+        $codeTasks = array();
         for($i = 0; $i< count($commands_to_run); $i++){
             $codeTask = new CodeTask($program_id
                 ,1
@@ -146,17 +147,20 @@ class CodeQuestionManager
                 ,true);
             $codeTask->store();
 
+            $codeTasks[] = $codeTask;
             $dockerInstance->run($commands_to_run[$i]);
-
         }
 
+
         $errors = $this->fileManager->getErrors();
-        $mark = $this->fileManager->calculateMarkForAdmin($cases_count);
+        $mark = $this->fileManager->calculateMarkForAdmin($codeTasks);
         $results = $this->fileManager->getResultsForCompare($cases_count);
+
+
         if(empty($errors)){
             $errors = "Отсутствуют";
         }
-        $result_message = "Ошибки компиляции: $errors\n\n"."Оценка: $mark/100"."\n\n$results\n";
+        $result_message = "Ошибки компиляции: $errors\n\n"."Оценка: $mark/100"."\n\n$results\n"."";
 
         return $result_message;
 

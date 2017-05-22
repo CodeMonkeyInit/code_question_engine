@@ -425,9 +425,18 @@ class CodeFileManager
         return floor(($right_count / $casesCount) * 100);
     }
 
-    public function calculateMarkForAdmin($casesCount){
+    public function calculateMarkForAdmin(array $codeTasks){
+
+        $casesCount = count($codeTasks);
         $right_count = 0;
         for ($i = 0; $i < $casesCount; $i++) {
+
+            if($codeTasks[$i]->state == CodeTaskStatus::MemoryOverflow ||
+                $codeTasks[$i]->state == CodeTaskStatus::Timeout){
+                $this->putLogInfo("Задача умерла");
+                continue;
+            }
+
 
             $expectedOutputFileName = str_replace("*",$i,$this->expecedOutputFileName);
             $outputFileName = str_replace("*",$i,$this->getOutputFileNameForTestCase($i));
@@ -435,6 +444,8 @@ class CodeFileManager
             if ($this->compareOutputs($expectedOutputFileName, $outputFileName)) {
                 $right_count++;
             }
+
+            $codeTasks[$i]->delete();
         }
         return floor(($right_count / $casesCount) * 100);
     }

@@ -18,8 +18,7 @@ class TaskStatesManager
     public function __construct(DockerManager $dockerManager)
     {
         $this->dockerManager = $dockerManager;
-        $this->fileManager =  CodeFileManagerFactory::getCodeFileManager($this->language);
-        $this->fileManager->setDirPath($this->codeTasks[0]->dirPath);
+
     }
 
     public function operateTaskStates()
@@ -53,20 +52,25 @@ class TaskStatesManager
         $cases_tasks = $this->getTasksByProgramId($allTasks, $currentTask->programId, $currentTask->dirPath);
         $ready_count = $this->getReadyCaseTasksCount($cases_tasks);
 
+        $isAdminCall = false;
         if ($ready_count == $currentTask->casesCount) {
 
             foreach ($cases_tasks as $case_task) {
-                //админские задачи не проверяются асинхронно, поэтому удаляем их.
+
+
                 if($case_task->isAdminTask){
-                    $case_task->delete();
+                    $isAdminCall = true;
                 }
-                else{
-                    $case_task->state = CodeTaskStatus::Checking;
-                    $case_task->store();
-                }
+                $case_task->state = CodeTaskStatus::Checking;
+                $case_task->store();
+
             }
 
-            \Queue::push(new CheckResultJob($currentTask->language, $cases_tasks));
+            //если задачу создавал админ, она проверяется синхронно, а не через job, поэтому не создаем
+            //новую job
+            if(!$isAdminCall) {
+                \Queue::push(new CheckResultJob($currentTask->language, $cases_tasks));
+            }
         }
 
     }
@@ -104,8 +108,10 @@ class TaskStatesManager
 
         } else {
             $task->state = CodeTaskStatus::QueuedToCheck;
+
         }
         $task->store();
+
     }
 
     private function getTasksByProgramId(array $tasks, $programId, $dirPath)
