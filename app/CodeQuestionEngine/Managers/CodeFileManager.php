@@ -100,6 +100,7 @@ class CodeFileManager
      */
     protected $runWord;
 
+
     /**
      * @return mixed
      */
@@ -419,6 +420,20 @@ class CodeFileManager
         return floor(($right_count / $casesCount) * 100);
     }
 
+    public function calculateMarkForAdmin($casesCount){
+        $right_count = 0;
+        for ($i = 0; $i < $casesCount; $i++) {
+
+            $expectedOutputFileName = str_replace("*",$i,$this->expecedOutputFileName);
+            $outputFileName = str_replace("*",$i,$this->getOutputFileNameForTestCase($i));
+
+            if ($this->compareOutputs($expectedOutputFileName, $outputFileName)) {
+                $right_count++;
+            }
+        }
+        return floor(($right_count / $casesCount) * 100);
+    }
+
     /**
      * Метод, возвращающий текстовую информацию о результатах теста в формате
      * Тестовый случай №:
@@ -434,9 +449,9 @@ class CodeFileManager
         $info = '';
 
         for ($i = 0; $i < $casesCount; $i++) {
-            $inputFileName = str_replace("*",$i,$this->inputFileName);
+            $inputFileName = $this->getInputFileNameForTestCase($i);
             $expectedOutputFileName = str_replace("*",$i,$this->expecedOutputFileName);
-            $outputFileName = str_replace("*",$i,$this->outputFileName);
+            $outputFileName = $this->getOutputFileNameForTestCase($i);
             $input = file_get_contents("$this->dirPath/$inputFileName");
             $expected = file_get_contents("$this->dirPath/$expectedOutputFileName");
             $student_output = file_get_contents("$this->dirPath/$outputFileName");
@@ -444,7 +459,7 @@ class CodeFileManager
             $info .= "Тестовый случай №:$i\n";
             $info .= "Входные параметры:\n$input\n";
             $info .= "Ожидаемый вывод:\n$expected\n";
-            $info .= "Вывод студента:\n$student_output\n";
+            $info .= "Вывод студента:\n$student_output\n\n";
         }
 
         return $info;

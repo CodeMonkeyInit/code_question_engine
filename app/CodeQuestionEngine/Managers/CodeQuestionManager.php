@@ -16,6 +16,12 @@ class CodeQuestionManager
      */
     private $fileManager;
 
+
+    /**
+     * @var DockerManager
+     */
+    private $dockerManager;
+
     /**
      * @var \Language язык программирования
      */
@@ -35,6 +41,12 @@ class CodeQuestionManager
     public function getLanguage()
     {
         return $this->language;
+    }
+
+
+    public function __construct(DockerManager $dockerManager)
+    {
+        $this->dockerManager = $dockerManager;
     }
 
     /**
@@ -68,6 +80,7 @@ class CodeQuestionManager
             $userFio = $contract->getFio();
 
             $givenAnswerId = $this->createEmptyAnswerEntity($testResultId, $questionId, $code);
+
             $this->prepareForRunning($code, $userFio);
             $cases_count = $this->fileManager->createTestCasesFiles($paramSets);
 
@@ -81,6 +94,56 @@ class CodeQuestionManager
 
         return "Программа успешно запущена";
     }
+
+
+    /**
+     * Синхронно запускает программу на выполнение.
+     * Возвращает полную информацию(результаты + ошибки)
+     * На вход передается программный код и массив объектов ParamSet
+     * @param $contract
+     * @return string
+     */
+    public function runProgram(RunProgramDataContract $contract){
+
+        $this->prepareForRunning($contract->getCode(), $contract->getFio());
+        $cases_count = $this->fileManager->createTestCasesFiles($contract->getParamSets());
+
+        $dirName = $this->fileManager->getDirNameFromFullPath();
+        $cache_dir = $this->fileManager->getCacheDirName();
+
+        $this->dockerManager->setLanguage($contract->getLanguage());
+        $dockerInstance = $this->dockerManager->getOrCreateInstance();
+
+        $commands_to_run = array();
+
+        //Здесь мы не сразу запускаем на выполнение, т.к.
+        //если запускать сразу, то возникает неуловимый баг
+        for($i = 0; $i < $cases_count; $i++) {
+            //здесь в качестве programId передаем что угодно, т.к. этот метод вызывает админ
+            //и по факту программы в бд нет.
+            $result = $this->fileManager->createShellScriptForTestCase(1, $i);
+            $script_name = $result["scriptName"];
+            $commands_to_run[] = "sh /opt/$cache_dir/$dirName/$script_name";
+        }
+
+        foreach($commands_to_run as $command){
+        $dockerInstance->run($command);
+        }
+
+        $errors = $this->fileManager->getErrors();
+        $mark = $this->fileManager->calculateMarkForAdmin($cases_count);
+        $results = $this->fileManager->getResultsForCompare($cases_count);
+        if(empty($errors)){
+            $errors = "Отсутствуют";
+        }
+        $result_message = "Ошибки компиляции: $errors\n\n"."Оценка: $mark/100"."\n\n$results\n";
+
+        return $result_message;
+
+    }
+
+
+
 
 
 
@@ -157,8 +220,6 @@ class CodeQuestionManager
         $this->fileManager->setDirPath($dirPath);
         $this->fileManager->putCodeInFile($code);
         $this->fileManager->createLogFile();
-
-
     }
 
 

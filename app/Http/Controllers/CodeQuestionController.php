@@ -23,7 +23,7 @@ class CodeQuestionController
     /**
      * @param Request $request запускает программу на выполнение
      */
-    public function runProgram(Request $request){
+    public function runQuestionProgram(Request $request){
 
         $runProgramJson = $request->all();
 
@@ -34,5 +34,17 @@ class CodeQuestionController
         $this->_codeQuestionManager->setProgramLanguage($runProgramDataContract->getLanguage());
         $this->_codeQuestionManager->runQuestionProgram($runProgramDataContract);
 
+    }
+
+    public function runProgram(Request $request){
+
+        $runProgramJson = $request->all();
+        $runProgramDataContract = new RunProgramDataContract();
+        $runProgramDataContract->fillFromJson($runProgramJson);
+
+        $this->_codeQuestionManager->setProgramLanguage($runProgramDataContract->getLanguage());
+        $result = $this->_codeQuestionManager->runProgram($runProgramDataContract);
+
+        return $result;
     }
 }

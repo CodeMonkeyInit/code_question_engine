@@ -19,6 +19,9 @@ Route::group(['prefix' => 'api'], function() {
      */
     Route::group(['prefix' => 'program'], function () {
 
+        Route::post('runQuestionProgram','CodeQuestionController@runQuestionProgram')
+            ->middleware('checkIP');
+
         Route::post('runProgram','CodeQuestionController@runProgram')
             ->middleware('checkIP');
 
