@@ -17,6 +17,8 @@ class CheckIP
      */
     public function handle($request, Closure $next)
     {
+
+        return $next($request);
         if($this->checkIfIpInWhiteList($request)){
             return $next($request);
         }
