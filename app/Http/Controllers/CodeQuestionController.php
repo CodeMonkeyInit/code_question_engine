@@ -28,8 +28,6 @@ class CodeQuestionController
         $runProgramJson = $request->all();
 
 
-
-
         $runProgramDataContract = new RunProgramDataContract();
         $runProgramDataContract->fillFromJson($runProgramJson);
 
@@ -48,5 +46,9 @@ class CodeQuestionController
         $result = $this->_codeQuestionManager->runProgram($runProgramDataContract);
 
         return $result;
+    }
+
+    public function test(){
+        return 'hello';
     }
 }

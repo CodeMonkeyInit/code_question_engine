@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 'redis', /*env('QUEUE_DRIVER', 'sync'),*/
+    'default' => env('QUEUE_DRIVER'), /*env('QUEUE_DRIVER', 'sync'),*/
 
     /*
     |--------------------------------------------------------------------------
