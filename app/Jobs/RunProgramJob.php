@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Exception;
 
 class RunProgramJob implements ShouldQueue
 {
@@ -36,12 +37,18 @@ class RunProgramJob implements ShouldQueue
 
     public function handle(DockerManager $dockerManager)
     {
-        $dockerManager->setLanguage($this->codeTask->language);
-        $dockerInstance = $dockerManager->getOrCreateInstance();
-        $this->codeTask->state = \CodeTaskStatus::Running;
-        $this->codeTask->store();
-        $dockerInstance->run($this->command);
+        try {
+            $dockerManager->setLanguage($this->codeTask->language);
+            $dockerInstance = $dockerManager->getOrCreateInstance();
+            $this->codeTask->state = \CodeTaskStatus::Running;
+            $this->codeTask->store();
+            $dockerInstance->run($this->command);
 
-        return;
+            return;
+        }
+        catch(Exception $e){
+            echo $e->getMessage();
+            return;
+        }
     }
 }

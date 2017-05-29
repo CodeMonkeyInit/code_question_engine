@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use TestCalculatorProxy;
+use Exception;
 
 class CheckResultJob implements ShouldQueue
 {
@@ -49,22 +50,32 @@ class CheckResultJob implements ShouldQueue
      */
     public function handle()
     {
-        $this->fileManager =  CodeFileManagerFactory::getCodeFileManager($this->language);
-        $this->fileManager->setDirPath($this->codeTasks[0]->dirPath);
+        try {
+            $this->fileManager = CodeFileManagerFactory::getCodeFileManager($this->language);
+            $this->fileManager->setDirPath($this->codeTasks[0]->dirPath);
 
 
-        $count  = count($this->codeTasks);
-        echo "cases_count = $count\n";
-        $mark = $this->fileManager->calculateMark($this->codeTasks);
-        echo "оценка $mark\n";
+            $count = count($this->codeTasks);
+            echo "cases_count = $count\n";
+            $mark = $this->fileManager->calculateMark($this->codeTasks);
+            echo "оценка $mark\n";
 
-         TestCalculatorProxy::setAnswerMark($this->codeTasks[0]->givenAnswerId,$mark);
+            TestCalculatorProxy::setAnswerMark($this->codeTasks[0]->givenAnswerId, $mark);
 
-        foreach($this->codeTasks as $codeTask){
-            $codeTask->delete();
-            echo $codeTask->key." задача удалена из кеша\n";
+            foreach ($this->codeTasks as $codeTask) {
+                $codeTask->delete();
+                echo $codeTask->key . " задача удалена из кеша\n";
+            }
+
+            return;
         }
-
-        return;
+        catch(Exception $e){
+            echo $e->getMessage();
+            foreach ($this->codeTasks as $codeTask) {
+                $codeTask->delete();
+                echo $codeTask->key . " задача удалена из кеша\n";
+            }
+            return;
+        }
     }
 }

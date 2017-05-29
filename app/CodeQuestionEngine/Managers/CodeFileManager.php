@@ -240,13 +240,13 @@ class CodeFileManager
 
 
             $dirName = $userFio . "_" .
-                       time();
+                       str_random(9);
             $cacheDir = EngineGlobalSettings::CACHE_DIR;
 
             $dirPath = "$this->app_path/$cacheDir/$dirName";
             mkdir($dirPath, 0777);
         } catch (\Exception $e) {
-            throw new \Exception("Не удалось создать директорию!");
+            throw new \Exception("Не удалось создать директорию!". $e->getMessage());
         }
         $this->setDirPath($dirPath);
         $this->uniqueDirName = $this->getDirNameFromFullPath();
