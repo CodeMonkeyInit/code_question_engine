@@ -594,6 +594,7 @@ class CodeFileManager
         $executeFileNameForTestCase = $this->getExecuteFileName();
 
         if($executeFileNameForTestCase === ""){
+
             $executeFileNameForTestCase =  $this->getCodeFileName();
         }
 
@@ -617,11 +618,13 @@ class CodeFileManager
 
         if(!$isScriptLang) {
             $executeCommand = EngineGlobalSettings::EXECUTE_PATTERN;
+            $executeCommand = str_replace("$0", $this->getRunWord(), $executeCommand);
         }
         else {
             $executeCommand = EngineGlobalSettings::EXECUTE_PATTERN_FOR_SCRIPT_LANGUAGES;
+            $executeCommand = str_replace("$0", "", $executeCommand);
         }
-            $executeCommand = str_replace("$0", $this->getRunWord(), $executeCommand);
+
             $executeCommand = str_replace("$1", $executeFileName, $executeCommand);
             $executeCommand = str_replace("$2", $outputFileName, $executeCommand);
             $executeCommand = str_replace("$3", $inputFileName, $executeCommand);
@@ -668,19 +671,18 @@ class CodeFileManager
     {
         try {
             $scriptName = $this->createShellScriptNameForTestCase($testCaseNum);
-
-            $isNoExecuteFile = false;
-            if($this->executeFileName === ""){
-                $isNoExecuteFile = true;
-            }
-
             $executeFileNameForTestCase = $this->getExecuteFileNameForTestCase($programId, $testCaseNum);
-
-
             $filePath = $this->putBaseShellScriptInfoIntoExecuteShellScript($scriptName, $executeFileNameForTestCase);
 
-
             $testShellScriptText = file_get_contents($filePath);
+
+            $isNoExecuteFile = false;
+            //если язык скриптовый,то в имя процесса добавляется имя запускаемой команды
+            //Имя процесса php code_1.php например.
+            if($this->executeFileName === ""){
+                $isNoExecuteFile = true;
+                $executeFileNameForTestCase = $this->getRunWord().$executeFileNameForTestCase;
+            }
 
             $outputFileName = $this->getOutputFileNameForTestCase($testCaseNum);
             $inputFileName = $this->getInputFileNameForTestCase($testCaseNum);

@@ -128,6 +128,7 @@ class CodeQuestionManager
             //и по факту программы в бд нет.
             $result = $this->fileManager->createShellScriptForTestCase(1, $i);
             $script_name = $result["scriptName"];
+
             $executeFileNames[] = $result["executeFileName"];
             $commands_to_run[] = "sh /opt/$cache_dir/$dirName/$script_name";
         }
