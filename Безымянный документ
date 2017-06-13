@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <math.h>
+
+int GenerateNextPermKN(int *a, int k, int n)
+{
+        int edge, j, i, tmp;
+        edge = k - 1;
+ 
+        // find j in (k…n-1) where a[j] > a[edge]
+        j = k;
+        while ( (j < n) && (a[edge] >= a[j]) ) ++j;
+ 
+        if (j < n)
+        {
+                // swap a[egde], a[j]
+                tmp = a[edge], a[edge] = a[j], a[j] = tmp;
+        }
+        else
+        {
+                // reverse a[k] to a[n-1]
+                for (i = k, j=n-1;  i<j;  i++, j--)
+                {
+                        tmp = a[i], a[i] = a[j], a[j] = tmp;
+                }
+ 
+                // find rightmost ascent to left of edge
+                i = edge - 1;
+                while (i >= 0 && a[i] >= a[i+1]) --i;
+ 
+                if (i < 0) return 0;           // no more permutations
+ 
+                // find j in (n-1…i+1) where aj > ai
+                j = n - 1;
+                while (j > i && a[i] >= a[j]) --j;
+ 
+                // swap a[i], a[j]
+                tmp = a[i], a[i] = a[j], a[j] = tmp;
+ 
+                // reverse a[i+1] to an-1
+                for (i = i+1, j=n-1;  i<j;  i++, j--)
+                {
+                        tmp = a[i], a[i] = a[j], a[j] = tmp;
+                }
+        }
+        return 1;
+}
+
+int main(){
+    
+    const int n = 5;
+    int a [n] = {1,2,3,4,5};
+    int iter_count = pow(2,n);
+   
+    
+    GenerateNextPermKN(a, n, n);
+    for(int k = 0; k < iter_count; k++){
+        for(int i =0; i<n; i++){
+            printf("%d ",a[i]);
+        }
+        printf("\n");
+    }
+    
+}

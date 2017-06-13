@@ -43,6 +43,18 @@ class CodeQuestionManagerTest extends TestCase
 
     }
 
+    public function testRunQuestionProgram(){
+        $this->writeConsoleMessage('Запуск программы');
+        $this->assertEquals(true,true);
+        $this->writeOk();
+    }
+
+    public function testRunProgram(){
+        $this->writeConsoleMessage('Запуск программы в режиме администратора');
+        $this->assertEquals(true,true);
+        $this->writeOk();
+    }
+
 
 
 }

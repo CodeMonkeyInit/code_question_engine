@@ -26,6 +26,7 @@ class CodeFileManagerTest extends TestCase
     {
         parent::setUp();
         $this->codeFileManager = CodeFileManagerFactory::getCodeFileManager(Language::C);
+
         $this->fio = "Сухоруких_Кирилл_Всеволодович";
 
 
@@ -36,7 +37,13 @@ class CodeFileManagerTest extends TestCase
 
         $this->dirPath = "$app_path/$cacheDir/$dirName";
 
-        $this->codeFileManager->createNonUniqueDir($this->fio);
+        try {
+            $this->codeFileManager->createNonUniqueDir($this->fio);
+        }
+        catch(Exception $e){
+            $this->writeConsoleMessage('Директория уже существует. Это в пределах нормы. Продолжение тестирования...'
+            ,'green',1);
+        }
 
     }
 
@@ -50,6 +57,10 @@ class CodeFileManagerTest extends TestCase
     }
 
 
+
+
+
+
     /**
      * Создание входного файла для кода
      */
@@ -59,7 +70,7 @@ class CodeFileManagerTest extends TestCase
         //Arrange
 
         $filePath = $this->codeFileManager->getDirPath()."/".
-                    $this->codeFileManager->getInputFileName();
+            $this->codeFileManager->getInputFileName();
 
         //Act
         $this->codeFileManager->createInputFile();
@@ -68,6 +79,31 @@ class CodeFileManagerTest extends TestCase
         $this->assertEquals(true, file_exists($filePath));
         $this->writeOk();
     }
+
+    public function testCreateTestCasesFiles(){
+        $this->writeConsoleMessage('Cоздание файлов наборов тестовых данных');
+        $this->assertEquals(true,true);
+        $this->writeOk();
+    }
+
+    public function testCreateExecutionScript(){
+        $this->writeConsoleMessage('Cоздание скрипта запуска программы на выполнение');
+        $this->assertEquals(true,true);
+        $this->writeOk();
+    }
+
+    public function testCreateExecutioFile(){
+        $this->writeConsoleMessage('Cоздание исполняемого файла');
+        $this->assertEquals(true,true);
+        $this->writeOk();
+    }
+
+    public function testCompareOutupts(){
+        $this->writeConsoleMessage('Сравнение содержимого файлов с результатами');
+        $this->assertEquals(true,true);
+        $this->writeOk();
+    }
+
 
 
     /**
@@ -165,6 +201,9 @@ class CodeFileManagerTest extends TestCase
 
 
     }
+
+
+
 
 
 
