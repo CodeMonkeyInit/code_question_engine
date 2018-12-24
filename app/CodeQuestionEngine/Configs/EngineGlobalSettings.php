@@ -1,4 +1,5 @@
 <?php
+
 namespace CodeQuestionEngine;
 
 
@@ -25,7 +26,7 @@ class EngineGlobalSettings
      *
      * gcc code.c 2> errors.txt -o
      * run
-        Вместо строки run программа подставит необходимые данные для запуска кода
+     * Вместо строки run программа подставит необходимые данные для запуска кода
      *
      * Имя скрипта ОБЯЗАТЕЛЬНО должно заканчиваться на .sh
      */
@@ -33,8 +34,8 @@ class EngineGlobalSettings
         \Language::C => "run.sh",
         \Language::PHP => "php-run.sh",
         \Language::Pascal => "pascal-run.sh",
-
-        ];
+        \Language::JavaScript => "node-run.sh"
+    ];
 
 
     /**
@@ -44,6 +45,7 @@ class EngineGlobalSettings
         \Language::C => 'c',
         \Language::PHP => "php",
         \Language::Pascal => "pas",
+        \Language::JavaScript => "js"
     ];
 
     /**
@@ -54,6 +56,7 @@ class EngineGlobalSettings
         \Language::C => "c_output.out",
         \Language::PHP => "",
         \Language::Pascal => "code",
+        \Language::JavaScript => ""
     ];
 
     /**
@@ -63,6 +66,7 @@ class EngineGlobalSettings
         \Language::C => './',
         \Language::PHP => 'php ',
         \Language::Pascal => './',
+        \Language::JavaScript => 'node '
     ];
 
     /**
